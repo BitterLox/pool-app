@@ -3,7 +3,7 @@
 package main
 
 import (
-	"github.com/bitterlox/pool-app/markup"
+	"github.com/bitterlox/pool-app/components/markup"
 	"github.com/murlokswarm/app"
 	"github.com/murlokswarm/app/drivers/mac"
 	"os"
