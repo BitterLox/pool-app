@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+html {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.container {
+  padding-top: 25px;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 30px 350px 50px;
+  grid-template-areas: "h h h h h h" "m c c c c c" "m f f f f f";
+}
+
+/* @media screen and (max-width: 640px) {
+  .container {
+    grid-template-areas: "m m m h h h" "c c c c c c" "f f f f f f";
+  }
+} */
+
+.header {
+  grid-area: h;
+  height: 100%;
+  width: 100%;
+  background-color: #00ea90;
+}
+
+.menu {
+  grid-area: m;
+  height: 100%;
+  width: 100%;
+  background-color: #00ea90;
+}
+
+.content {
+  grid-area: c;
+  height: 100%;
+  width: 100%;
+  background-color: #00ea90;
+  display: grid;
+  grid-gap: 25px;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "t c";
+  justify-items: end;
+  align-items: center;
+}
+
+.footer {
+  grid-area: f;
+  height: 100%;
+  width: 100%;
+  background-color: #00ea90;
+}
+
+.chart {
+  grid-area: c;
+}

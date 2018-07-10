@@ -1,0 +1,104 @@
+// package composition
+//
+// import (
+// 	// "bytes"
+// 	// "encoding/json"
+// 	"github.com/murlokswarm/app"
+// 	"github.com/wcharczuk/go-chart"
+// 	"time"
+// )
+//
+// type Test struct {
+// 	A int
+// 	B int
+// 	C int
+// }
+//
+// type Value struct {
+// 	Label string
+// 	Value float64
+// }
+//
+// type Values []Value
+//
+// func (v Values) convertData() []chart.Value {
+// 	result := make([]chart.Value, len(v))
+// 	for i := 0; i < len(v); i++ {
+// 		result = append(result, chart.Value{Value: v[i].Value, Label: v[i].Label})
+// 	}
+// 	return result
+// }
+//
+// type Hello struct {
+// 	Name *Values
+// }
+//
+// func (h *Hello) OnMount() {
+// 	h.Name = &Values{
+// 		{Value: 5, Label: "one"},
+// 		{Value: 5, Label: "two"},
+// 		{Value: 4, Label: "three"},
+// 		{Value: 4, Label: "four"},
+// 		{Value: 3, Label: "five"},
+// 		{Value: 3, Label: "six"},
+// 		{Value: 1, Label: "seven"},
+// 	}
+//
+// 	// test := chartData.convertData()
+// 	//
+// 	// app.Debug("convertData test: %#v %T", test, test)
+//
+// 	// data, err := json.Marshal(chartData)
+// 	//
+// 	// if err != nil {
+// 	// 	app.Debug("Error marshaling data: %v", err)
+// 	// }
+//
+// 	// h.Name = &data
+//
+// 	app.Debug("OnMount() Hello")
+// 	app.Debug("OnMount() Hello: %v", h.Name)
+//
+// 	uiloop := make(chan struct{})
+//
+// 	go func() {
+// 		c := time.Tick(50 * time.Millisecond)
+// 		for _ = range c {
+// 			select {
+// 			default:
+// 				app.Render(h)
+// 				app.Debug("Tick")
+// 			case <-uiloop:
+// 				return
+// 			}
+// 		}
+// 	}()
+// }
+//
+// func (h *Hello) Render() string {
+// 	return `
+// <div>
+//     <h1>
+//         Hello,
+//         <composition.World name="{{json .Name}}">
+//     </h1>
+// </div>
+//     `
+// }
+//
+// type World struct {
+// 	Name *Values
+// }
+//
+// func (w *World) OnMount() {
+// 	app.Debug("OnMount() World")
+// 	app.Debug("OnMount() World: %v", w.Name)
+// }
+//
+// func (w *World) Render() string {
+// 	return `
+// <span>
+//     {{.Name}}
+// </span>
+//     `
+// }
