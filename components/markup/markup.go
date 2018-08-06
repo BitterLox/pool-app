@@ -2,6 +2,7 @@ package markup
 
 import (
 	"bytes"
+	"encoding/json"
 	"github.com/murlokswarm/app"
 	"github.com/wcharczuk/go-chart"
 	"time"
@@ -20,7 +21,7 @@ func (h *Container) OnMount() {
 	app.Log("%s", "OnMount() main")
 	app.Debug("%v", h.Data)
 
-	h.Data = []chart.Value{
+	sample = []chart.Value{
 		{Value: 5, Label: "one"},
 		{Value: 5, Label: "two"},
 		{Value: 4, Label: "three"},
@@ -29,6 +30,13 @@ func (h *Container) OnMount() {
 		{Value: 3, Label: "six"},
 		{Value: 1, Label: "seven"},
 	}
+	app.Debug("OnMount Sample", sample)
+
+	data, err := json.Marshal(sample)
+
+	app.Debug("OnMount Marshal", data)
+
+	h.Data = data
 
 	app.Log("OnMount() main 2")
 	app.Debug("%v 2", h.Data)
