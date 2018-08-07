@@ -26,6 +26,9 @@ html {
 }
 
 .menu {
+  display: inline-grid;
+  justify-items: center;
+  align-items: center;
   grid-area: m;
   height: 100%;
   width: 100%;

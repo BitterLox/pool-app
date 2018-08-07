@@ -15,6 +15,8 @@ func init() {
 	}
 	app.Import(&Chart{})
 	app.Import(&Container{})
+	app.Import(&Stats{})
+	app.Import(&Test{})
 
 }
 
